@@ -42,3 +42,5 @@ Thumbs.db
 *.sln
 
 workclassesoper/workclassesoper.csproj
+
+workclassesoper/Properties/AssemblyInfo.cs
