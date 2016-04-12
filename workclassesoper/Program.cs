@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace workclassesoper
+namespace lab2class
 {
 
 	public class MyArray : ICloneable 
@@ -123,9 +123,7 @@ namespace workclassesoper
 		static void Main(string[] args)
 		{
 			Console.SetWindowSize(80, 50);
-
 			MyArray arr = new MyArray(-3, 6);
-
 			MyArray arr2 = new MyArray(4, 8);
 
 
@@ -146,6 +144,18 @@ namespace workclassesoper
 				Console.WriteLine(arr[i]);
 			}
 
+
+			Console.WriteLine();
+			Console.WriteLine("Элемент с индексом 4 первого массива - {0}", arr[4]);  //обращение к строке массива
+			Console.WriteLine();
+
+			/*
+			Console.WriteLine();
+			Console.WriteLine("Элемент с индексом 5 второго массива - {0}", arr2[5]);
+			Console.WriteLine();
+
+*/
+
 			Console.WriteLine();
 			Console.WriteLine("Все элементы второго массива");
 			for (int i = arr2.FirstIndex; i < arr2.LastElemPos; i++)
@@ -153,10 +163,8 @@ namespace workclassesoper
 				Console.WriteLine(arr2[i]);
 			}
 
-			Console.WriteLine();
-			Console.WriteLine("Элемент с индексом -1 первого массива - {0}",arr[-1]);
-			Console.WriteLine();
 
+			Console.WriteLine ();
 
 			MyArray concatArr = MyArray.Concat(arr, arr2);
 			Console.WriteLine("Объединенный массив");
