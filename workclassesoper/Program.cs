@@ -5,47 +5,46 @@ using System.Text;
 
 namespace workclassesoper
 {
-	// создаем наш класс - контейнер для стрингов, реализуем Icloneable,
-	//чтобы не портить исходные массивы при объединении 
+
 	public class MyArray : ICloneable 
 	{
 
 		private int firstIndex, lastIndex;
-		string[] arr; //объявляем внутренний служебный массив 
+		string[] arr;  
 
-		public MyArray(int firstIndex, int lastIndex) // конструктор, вызывается при созданнии объекта
+		public MyArray(int firstIndex, int lastIndex) 
 		{
 
 			if (firstIndex >= lastIndex)
 				throw new ArgumentException("первый индекс должен быть меньше последнего");
-			this.firstIndex = firstIndex; // инициализируем границы нашего контейнера
+			this.firstIndex = firstIndex; // инициализируем границы
 			this.lastIndex = lastIndex;
-			arr = new string[lastIndex - firstIndex +1]; // инициализируем внутренний массив
+			arr = new string[lastIndex - firstIndex +1]; 
 		}
 
-		public int FirstIndex // свойство, возвращающее индекс первого элемент нашего контейнера
+		public int FirstIndex 
 		{
 			get { return firstIndex; }
 		}
 
-		public int LastElemPos // свойство, возвращающее индекс последнего элемент нашего контейнера
+		public int LastElemPos 
 		{
 
 			get { return arr.Length + firstIndex; }
 		}
 
-		public string this[int pos] // для того, чтобы обращаться к нашему контейнеру синтаксисом MyArr[i], создаем индексатор
+		public string this[int pos] 
 		{
 			get
 			{
-				if (pos < firstIndex || pos > lastIndex) // проверяем границы массива, если вышли - генерируем исключение
-					throw new ArgumentOutOfRangeException("Вышли за границы массива :(");
+				if (pos < firstIndex || pos > lastIndex) 
+					throw new ArgumentOutOfRangeException("Вышли за границы массива");
 				else
 					return arr[pos-firstIndex];
 			}
 			set
 			{
-				if (pos < firstIndex || pos > lastIndex) // проверяем границы массива, если вышли - генерируем исключение
+				if (pos < firstIndex || pos > lastIndex) 
 					throw new ArgumentOutOfRangeException("Вышли за границы массива :(");
 				else
 					arr[pos-firstIndex] = value;
@@ -53,7 +52,7 @@ namespace workclassesoper
 		}
 
 
-		public object Clone() // реализуем клонирование
+		public object Clone() // клонирование
 		{
 			MyArray copy = new MyArray(this.firstIndex, this.lastIndex);
 			for (int i = 0; i < copy.arr.Length; i++)
@@ -69,7 +68,6 @@ namespace workclassesoper
 
 		public static MyArray Concat(MyArray arr1, MyArray arr2) //объединяем массивы
 		{
-			//клонируем входящие массивы, чтобы не портить данные
 			MyArray temp1 = (MyArray)arr1.Clone();
 			MyArray temp2 = (MyArray)arr2.Clone();
 
@@ -126,9 +124,9 @@ namespace workclassesoper
 		{
 			Console.SetWindowSize(80, 50);
 
-			MyArray arr = new MyArray(-6, 3);
+			MyArray arr = new MyArray(-3, 6);
 
-			MyArray arr2 = new MyArray(1, 5);
+			MyArray arr2 = new MyArray(4, 8);
 
 
 
