@@ -148,7 +148,7 @@ namespace lab2class
 			Console.WriteLine();
 			Console.WriteLine("Элемент с индексом 4 первого массива - {0}", arr[4]);  //обращение к строке массива
 			Console.WriteLine();
-
+			// границы задавать + по индексу обращение
 			/*
 			Console.WriteLine();
 			Console.WriteLine("Элемент с индексом 5 второго массива - {0}", arr2[5]);
@@ -174,7 +174,6 @@ namespace lab2class
 				Console.WriteLine(concatArr[i]);
 			}
 			Console.WriteLine();
-
 
 			MyArray MergeArr = MyArray.Merge(arr, arr2);
 
